@@ -4,6 +4,7 @@
 <head>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=8mn3xzptkk"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="/MarkerClustering.js"></script>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
@@ -26,6 +27,11 @@ $(function() {
   
 });
 
+  
+  
+let markers = new Array(); // 마커 정보를 담는 배열
+let infoWindows = new Array(); // 정보창을 담는 배열
+  
 
 function initMap() { 
   
@@ -36,18 +42,22 @@ function initMap() {
        {location : '벨라튀니지' , lat : '37.2972199' , lng : '126.9713739', description: '율전에서 이색적인 음식을 먹고싶다면!'},  // 강동구 중심좌표
        {location : '알촌' , lat : '37.297476' , lng : '126.9717054', description: '율전에서 이색적인 음식을 먹고싶다면!'},  // 강북구 중심좌표
        {location : '무대포핫도그' , lat : '37.2969972' , lng : '126.9712576', description: '율전에서 이색적인 음식을 먹고싶다면!'},  // 강서구 중심좌표
-
+       {location : '힌카쿠' , lat : '37.2979467' , lng : '126.9721954', description: '율전에서 이색적인 음식을 먹고싶다면!'},
+       {location : '깡우동' , lat : '37.2984079' , lng : '126.9704937', description: '율전에서 이색적인 음식을 먹고싶다면!'},
+       {location : '무대포핫도그' , lat : '37.2981136' , lng : '126.9706376', description: '율전에서 이색적인 음식을 먹고싶다면!'},
+       {location : '독산성 족발&순대국' , lat : '37.2982302' , lng : '126.9712576', description: '율전에서 이색적인 음식을 먹고싶다면!'},
+       {location : '충만치킨' , lat : '37.2985579' , lng : '126.9696108', description: '율전에서 이색적인 음식을 먹고싶다면!'},
+       {location : '자명문' , lat : '37.2992317' , lng : '126.9699131', description: '율전에서 이색적인 음식을 먹고싶다면!'},
+       {location : '먹깨비김밥' , lat : '37.2986624' , lng : '126.971376', description: '율전에서 이색적인 음식을 먹고싶다면!'},
+       {location : '국졔식당' , lat : '37.2979487' , lng : '126.9732216', description: '율전에서 이색적인 음식을 먹고싶다면!'},
 
   );
   
-  
-  
-  let markers = new Array(); // 마커 정보를 담는 배열
-  let infoWindows = new Array(); // 정보창을 담는 배열
-  
+
   let _BASE = new naver.maps.LatLng(37.2939419, 126.9754234);
   let _ZOOM = 16;
   var menuLayer = $('<div style="position:absolute;z-index:10000;background-color:#fff;border:solid 1px #333;padding:10px;display:none;"></div>');
+
 
 
   // Map Options
@@ -68,15 +78,7 @@ function initMap() {
   var map = new naver.maps.Map('map', mapOptions)
 
   // Make an event for the map
-  naver.maps.Event.addListener(map, 'zoom_changed', function(e) {
-    if(e > 15) {
-        marker1.setMap(map);
-    }
-    else {
-        marker1.setMap(null);
-    }
 
-  });
 
   
   
@@ -89,7 +91,8 @@ function initMap() {
       var marker = new naver.maps.Marker({
           map: map,
           title: areaArr[i].location, // 지역구 이름 
-          position: new naver.maps.LatLng(areaArr[i].lat , areaArr[i].lng) // 지역구의 위도 경도 넣기 
+          position: new naver.maps.LatLng(areaArr[i].lat , areaArr[i].lng), // 지역구의 위도 경도 넣기
+          draggable: false 
       });
       
       /* 정보창 */
@@ -167,6 +170,49 @@ function initMap() {
 
 
 }
+
+$(document).ready(function() {
+    var htmlMarker1 = {
+        content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(https://navermaps.github.io/maps.js.ncp/docs/img/cluster-marker-1.png);background-size:contain;"></div>',
+        size: N.Size(40, 40),
+        anchor: N.Point(20, 20)
+    },
+    htmlMarker2 = {
+        content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(https://navermaps.github.io/maps.js.ncp/docs/img/cluster-marker-2.png);background-size:contain;"></div>',
+        size: N.Size(40, 40),
+        anchor: N.Point(20, 20)
+    },
+    htmlMarker3 = {
+        content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(https://navermaps.github.io/maps.js.ncp/docs/img/cluster-marker-3.png);background-size:contain;"></div>',
+        size: N.Size(40, 40),
+        anchor: N.Point(20, 20)
+    },
+    htmlMarker4 = {
+        content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(https://navermaps.github.io/maps.js.ncp/docs/img/cluster-marker-4.png);background-size:contain;"></div>',
+        size: N.Size(40, 40),
+        anchor: N.Point(20, 20)
+    },
+    htmlMarker5 = {
+        content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(https://navermaps.github.io/maps.js.ncp/docs/img/cluster-marker-5.png);background-size:contain;"></div>',
+        size: N.Size(40, 40),
+        anchor: N.Point(20, 20)
+    };
+
+
+    var markerClustering = new MarkerClustering({
+        minClusterSize: 3,
+        maxZoom: 13,
+        map: map,
+        markers: markers,
+        disableClickZoom: false,
+        gridSize: 120,
+        icons: [htmlMarker1, htmlMarker2, htmlMarker3, htmlMarker4, htmlMarker5],
+        indexGenerator: [10, 100, 200, 500, 1000],
+        stylingFunction: function(clusterMarker, count) {
+            $(clusterMarker.getElement()).find('div:first-child').text(count);
+        }
+    });
+})
 
 
 </script>
