@@ -23,6 +23,16 @@ var cityhall = new naver.maps.LatLng(37.5666805, 126.9784147),
         position: cityhall
     });
 
+var teenageRestaurant = new naver.maps.LatLng(37.289041, 126.9815881),
+    map = new naver.maps.Map('map', {
+        center: teenageRestaurant.destinationPoint(0, 500),
+        zoom: 10
+    }),
+    marker = new naver.maps.Marker({
+        map: map,
+        position: teenageRestaurant
+    });
+
 var contentString = [
         '<div class="iw_inner">',
         '   <h3>서울특별시청</h3>',
