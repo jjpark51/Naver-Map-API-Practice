@@ -47,7 +47,7 @@ function initMap() {
   
   var map = new naver.maps.Map('map', {
       center: new naver.maps.LatLng(37.2939419, 126.9754234), //지도 시작 지점
-      zoom: 10
+      zoom: 5
   });
   
   
@@ -64,7 +64,7 @@ function initMap() {
       
       /* 정보창 */
        var infoWindow = new naver.maps.InfoWindow({
-           content: '<div style="width:200px;text-align:center;padding:10px;"><b>' + areaArr[i].location + '</b><br> - 네이버 지도 - </div>'
+           content: '<div style="width:200px;text-align:center;padding:10px;"><b>' + areaArr[i].location + '</b><br>' + areaArr[i].description +  ' </div>'
        }); // 클릭했을 때 띄워줄 정보 HTML 작성
       
        markers.push(marker); // 생성한 마커를 배열에 담는다.
