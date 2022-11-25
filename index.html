@@ -123,26 +123,7 @@ function initMap() {
     }
 
      // naver.maps.Event.addListener(map, 'click', newMarker(seq))
-      
-      function newMarker(seq) {
 
-        var coordHtml =
-            'Coord: '+ '(우 클릭 지점 위/경도 좌표)' + '<br />' +
-            'Point: ' + e.point + '<br />' +
-            'Offset: ' + e.offset;
-
-        menuLayer.show().css({
-            left: e.offset.x,
-            top: e.offset.y
-        }).html(coordHtml);
-
-        var marker = new naver.maps.Marker({
-            position: e.coord,
-            map: map
-        });
-
-        markers.push(marker);
-    }
   
       // This function pops up the info when we click on the according marker
   for (var i=0, ii=markers.length; i< ii; i++) { 
