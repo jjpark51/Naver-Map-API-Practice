@@ -90,10 +90,8 @@ function initMap() {
       console.log(markers[i] , getClickHandler(i));
       naver.maps.Event.addListener(markers[i], 'click', getClickHandler(i)); // 클릭한 마커 핸들러
   }
-}
 
-
-var polyline = new naver.maps.Polyline({
+  var polyline = new naver.maps.Polyline({
     map: map,
     path: [
         new naver.maps.LatLng(37.359924641705476, 127.1148204803467),
@@ -109,6 +107,22 @@ var polyline = new naver.maps.Polyline({
         new naver.maps.LatLng(37.36855417793982, 127.1207857131958)
     ]
 });
+
+var mapOptions = {
+        zoomControl: true,
+        zoomControlOptions: {
+            style: naver.maps.ZoomControlStyle.SMALL,
+            position: naver.maps.Position.TOP_RIGHT
+        }
+    };
+
+
+}
+
+
+
+
+
 
 </script>
 
