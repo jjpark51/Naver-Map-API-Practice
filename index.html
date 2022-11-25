@@ -47,7 +47,7 @@ function initMap() {
   
   var map = new naver.maps.Map('map', {
       center: new naver.maps.LatLng(37.2939419, 126.9754234), //지도 시작 지점
-      zoom: 5
+      zoom: 18
   });
   
   
@@ -91,6 +91,22 @@ function initMap() {
       naver.maps.Event.addListener(markers[i], 'click', getClickHandler(i)); // 클릭한 마커 핸들러
   }
 }
+
+var polygon = new naver.maps.Polygon({
+    map: map,
+    paths: [
+        [
+            new naver.maps.LatLng(37.300595, 126.963731),
+            new naver.maps.LatLng(37.299731, 126.972341),
+            new naver.maps.LatLng(37.37296454, 126.970356),
+        ]
+    ],
+    fillColor: '#ff0000',
+    fillOpacity: 0.8,
+    strokeColor: '#ff0000',
+    strokeOpacity: 0.6,
+    strokeWeight: 3
+});
 
 </script>
 
