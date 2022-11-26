@@ -23,7 +23,7 @@ $(function() {
  {location : '무대포핫도그' , lat : '37.2981136' , lng : '126.9706376', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test6.png', type: 'Food'},
  {location : '독산성 족발&순대국' , lat : '37.2982302' , lng : '126.9712576', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test7.png', type: 'Food'},
  {location : '충만치킨' , lat : '37.2985579' , lng : '126.9696108', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test8.png', type: 'Food'},
- {location : '자명문' , lat : '37.2992317' , lng : '126.9699131', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test9.png', type: 'Fafe'},
+ {location : '자명문' , lat : '37.2992317' , lng : '126.9699131', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test9.png', type: 'Cafe'},
  {location : '먹깨비김밥' , lat : '37.2986624' , lng : '126.971376', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test10.png', type: 'Food'},
  {location : '국졔식당' , lat : '37.2979487' , lng : '126.9732216', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test11.png', type: 'Food'},
 
@@ -242,11 +242,14 @@ $(function() {
     let newMarkers = []
 
     for(let i = 0; i < markers.length; i++) { // markers를 초기화하는 부분
+        console.log("We hide the markers on map")
         markers[i].setMap(null) // We make sure that markers doesn't appear on the map
     }
 
     if(define == "All") {
         for(let i = 0; i < markers.length; i++) {
+            console.log("We show all markers")
+            console.log(markers[i])
             markers[i].setMap(map);
             newMarkers.push(markers[i])
         }      
@@ -255,10 +258,12 @@ $(function() {
         for(let i =0 ; i < markers.length; i++) {
             console.log(markers[i].type)
             if(define == markers[i].type) {
+                console.log("show" + markers[i].type)
                 markers[i].setMap(map);
                 newMarkers.push(markers[i]);
             }
             else {
+                console.log("hide" + markers[i].type)
                 markers[i].setMap(null)
             }
         }
