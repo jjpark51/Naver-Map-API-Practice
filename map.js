@@ -1,10 +1,30 @@
 $(function() {
-  
+    
+
     initMap();
     
   });
   
-    
+
+  let _BASE = new naver.maps.LatLng(37.2939419, 126.9754234);
+    let _ZOOM = 16;
+  
+  
+  
+    // Map Options
+    var mapOptions = {
+      center: _BASE, //지도 시작 지점
+      zoom: _ZOOM,
+      zoomControl: true,
+      zoomControlOptions: {
+              position: naver.maps.Position.TOP_LEFT,
+              style: naver.maps.ZoomControlStyle.SMALL
+          },
+      scaleControl: true,
+      scaleControlOptions: {position: naver.maps.Position.BOTTOM_RIGHT},
+    };
+    // Here we render Naver Map 
+    var map = new naver.maps.Map('map', mapOptions)
     
   let markers = new Array(); // 마커 정보를 담는 배열
   let infoWindows = new Array(); // 정보창을 담는 배열
@@ -37,30 +57,11 @@ $(function() {
   
     
   
-    let _BASE = new naver.maps.LatLng(37.2939419, 126.9754234);
-    let _ZOOM = 16;
-  
-  
-  
-    // Map Options
-    var mapOptions = {
-      center: _BASE, //지도 시작 지점
-      zoom: _ZOOM,
-      zoomControl: true,
-      zoomControlOptions: {
-              position: naver.maps.Position.TOP_LEFT,
-              style: naver.maps.ZoomControlStyle.SMALL
-          },
-      scaleControl: true,
-      scaleControlOptions: {position: naver.maps.Position.BOTTOM_RIGHT},
-    };
-  
-    // Here we render Naver Map 
-    var map = new naver.maps.Map('map', mapOptions)
+    
   
     // Make an event for the map
   
-  
+    
     
     
    // 지역을 담은 배열의 길이만큼 for문으로 마커와 정보창을 채워주자 !
@@ -236,22 +237,19 @@ $(function() {
   }
 
   function markerDisplay(define) {
-    console.log("123")
-    console.log(define)
-    console.log("end")
-    let newMarkers = []
+ 
+    console.log("we put map as global")
 
-    for(let i = 0; i < markers.length; i++) { // markers를 초기화하는 부분
+    /*for(let i = 0; i < markers.length; i++) { // markers를 초기화하는 부분
         console.log("We hide the markers on map")
         markers[i].setMap(null) // We make sure that markers doesn't appear on the map
-    }
+    }*/
 
     if(define == "All") {
         for(let i = 0; i < markers.length; i++) {
             console.log("We show all markers")
             console.log(markers[i])
             markers[i].setMap(map);
-            newMarkers.push(markers[i])
         }      
     }
     else {
@@ -260,7 +258,6 @@ $(function() {
             if(define == markers[i].type) {
                 console.log("show" + markers[i].type)
                 markers[i].setMap(map);
-                newMarkers.push(markers[i]);
             }
             else {
                 console.log("hide" + markers[i].type)
@@ -268,4 +265,6 @@ $(function() {
             }
         }
     }
+
+    map.setZoom(15)
   }
