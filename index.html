@@ -15,11 +15,12 @@
 
 <!-- 네이버 지도가 뿌려질 곳 !  -->
 <div id="filter">
-    <button id="box1" onclick="markerDisplay(0)">Food</button>
-    <button id="box2" onclick="markerDisplay(1)">Cafe</button>
-    <button id="box3" onclick="markerDisplay(2)">Activities</button>
-    <button id="box4" onclick="markerDisplay(3)">Study</button>
-    <button id="box5" onclick="markerDisplay(4)">Alcohol</button>
+    <button id="box0"  value="All" onclick="markerDisplay(this.value)">All</button>
+    <button id="box1" value="Food" onclick="markerDisplay(this.value)">Food</button>
+    <button id="box2" value="Cafe" onclick="markerDisplay(this.value)">Cafe</button>
+    <button id="box3" value="Activities" onclick="markerDisplay(this.value)">Activities</button>
+    <button id="box4" value="Study" onclick="markerDisplay(this.value)">Study</button>
+    <button id="box5" value="Alcohol" onclick="markerDisplay(this.value)">Alcohol</button>
 
 </div>
 <div id="map" style="width:100%;height:75vh; margin: 0 auto;"></div>

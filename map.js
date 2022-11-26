@@ -11,26 +11,28 @@ $(function() {
   let areaArr = new Array();  // 지역을 담는 배열 ( 지역명/위도경도 )
   
   let hangoutList = []
+
+  areaArr.push(
+    /*지역구 이름*/         /*위도*/               /*경도*/            
+ {location : '본찌돈까스' , lat : '37.2971523' , lng : '126.9715006', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test0.png', type: 'Food'},  // 강남구 중심좌표
+ {location : '벨라튀니지' , lat : '37.2972199' , lng : '126.9713739', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test1.png', type: 'Food'},  // 강동구 중심좌표
+ {location : '알촌' , lat : '37.297476' , lng : '126.9717054', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test2.png', type: 'Food'},  // 강북구 중심좌표
+ {location : '무대포핫도그' , lat : '37.2969972' , lng : '126.9712576', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test3.png', type: 'Food'},  // 강서구 중심좌표
+ {location : '힌카쿠' , lat : '37.2979467' , lng : '126.9721954', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test4.png', type: 'Food'},
+ {location : '깡우동' , lat : '37.2984079' , lng : '126.9704937', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test5.png', type: 'Food'},
+ {location : '무대포핫도그' , lat : '37.2981136' , lng : '126.9706376', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test6.png', type: 'Food'},
+ {location : '독산성 족발&순대국' , lat : '37.2982302' , lng : '126.9712576', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test7.png', type: 'Food'},
+ {location : '충만치킨' , lat : '37.2985579' , lng : '126.9696108', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test8.png', type: 'Food'},
+ {location : '자명문' , lat : '37.2992317' , lng : '126.9699131', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test9.png', type: 'Fafe'},
+ {location : '먹깨비김밥' , lat : '37.2986624' , lng : '126.971376', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test10.png', type: 'Food'},
+ {location : '국졔식당' , lat : '37.2979487' , lng : '126.9732216', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test11.png', type: 'Food'},
+
+);
   
   
   function initMap() { 
     
-    areaArr.push(
-            /*지역구 이름*/         /*위도*/               /*경도*/            
-         {location : '본찌돈까스' , lat : '37.2971523' , lng : '126.9715006', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test0.png', type: 'food'},  // 강남구 중심좌표
-         {location : '벨라튀니지' , lat : '37.2972199' , lng : '126.9713739', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test1.png', type: 'food'},  // 강동구 중심좌표
-         {location : '알촌' , lat : '37.297476' , lng : '126.9717054', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test2.png', type: 'food'},  // 강북구 중심좌표
-         {location : '무대포핫도그' , lat : '37.2969972' , lng : '126.9712576', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test3.png', type: 'food'},  // 강서구 중심좌표
-         {location : '힌카쿠' , lat : '37.2979467' , lng : '126.9721954', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test4.png', type: 'food'},
-         {location : '깡우동' , lat : '37.2984079' , lng : '126.9704937', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test5.png', type: 'food'},
-         {location : '무대포핫도그' , lat : '37.2981136' , lng : '126.9706376', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test6.png', type: 'food'},
-         {location : '독산성 족발&순대국' , lat : '37.2982302' , lng : '126.9712576', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test7.png', type: 'food'},
-         {location : '충만치킨' , lat : '37.2985579' , lng : '126.9696108', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test8.png', type: 'food'},
-         {location : '자명문' , lat : '37.2992317' , lng : '126.9699131', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test9.png', type: 'cafe'},
-         {location : '먹깨비김밥' , lat : '37.2986624' , lng : '126.971376', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test10.png', type: 'food'},
-         {location : '국졔식당' , lat : '37.2979487' , lng : '126.9732216', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test11.png', type: 'food'},
-  
-    );
+    
   
   
     
@@ -73,6 +75,7 @@ $(function() {
             map: map,
             title: areaArr[i].location, // 지역구 이름 
             position: new naver.maps.LatLng(areaArr[i].lat , areaArr[i].lng), // 지역구의 위도 경도 넣기
+            type: areaArr[i].type,
             draggable: false 
         });
         console.log("Marker check")
@@ -88,7 +91,10 @@ $(function() {
          markers.push(marker); // 생성한 마커를 배열에 담는다.
          infoWindows.push(infoWindow); // 생성한 정보창을 배열에 담는다.
     }
-  
+    
+
+    console.log(markers)
+    console.log(infoWindows);
     // This displays all of the markers when the map loads
     
      
@@ -135,7 +141,7 @@ $(function() {
       });
   
   
-  
+      
   }
   
   
@@ -227,4 +233,30 @@ $(function() {
     mapList.innerHTML = hangoutList
     
     wrapper.appendChild(mapList)
+  }
+
+  function markerDisplay(type) {
+    let newMarkers = []
+
+    for(let i = 0; i < markers.length; i++) { // markers를 초기화하는 부분
+        markers[i].setMap(null) // We make sure that markers doesn't appear on the map
+    }
+
+    if(type == "All") {
+        for(let i = 0; i < markers.length; i++) {
+            markers[i].setMap(map);
+            newMarkers.push(markers[i])
+        }      
+    }
+    else {
+        for(let i =0 ; i < markers.length; i++) {
+            if(index == markers[i].type) {
+                markers[i].setMap(map);
+                newMarkers.push(markers[i]);
+            }
+            else {
+                markers[i].setMap(null)
+            }
+        }
+    }
   }
