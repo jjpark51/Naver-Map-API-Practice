@@ -22,7 +22,7 @@
 
 }
 
-#currentList p {
+p {
     font-size: 20pt;
     font-weight:bolder;
     margin-top: 15px;
@@ -71,7 +71,8 @@
 }
 
 #remove {
+    margin-top:10px;
     border-radius: 5px;
     color:black;
-    
+
 }
