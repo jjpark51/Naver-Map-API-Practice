@@ -56,19 +56,19 @@ function initMap() {
 
   );
 
-  function listAdd(i) {
+  function listAdd(index) {
 
         let wrapper = document.getElementById('currentList')
         wrapper.empty()
 
 
 
-        hangoutList.push(areaArr[i].location)
-        console.log(areaArr[i].location)
+        hangoutList.push(areaArr[index].location)
+        console.log(areaArr[index].location)
 
         let mapList = document.createElement("div");
         mapList.setAttribute("class", "mapList")
-        mapList.innerHTML = areaArr[i].location
+        mapList.innerHTML = areaArr[index].location
 
         wrapper.appendChild(mapList)
         
