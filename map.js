@@ -250,7 +250,7 @@ $(function() {
     }
     else {
         for(let i =0 ; i < markers.length; i++) {
-            if(index == markers[i].type) {
+            if(type == markers[i].type) {
                 markers[i].setMap(map);
                 newMarkers.push(markers[i]);
             }
