@@ -15,6 +15,7 @@
 
 <!-- 네이버 지도가 뿌려질 곳 !  -->
 <div id="map" style="width:100%;height:75vh; margin: 0 auto;"></div>
+<div id="currentList"></div>
 
 
 </body>
@@ -32,6 +33,7 @@ $(function() {
   
 let markers = new Array(); // 마커 정보를 담는 배열
 let infoWindows = new Array(); // 정보창을 담는 배열
+let hangoutList = []
   
 
 function initMap() { 
@@ -39,20 +41,38 @@ function initMap() {
   var areaArr = new Array();  // 지역을 담는 배열 ( 지역명/위도경도 )
   areaArr.push(
           /*지역구 이름*/			/*위도*/					/*경도*/				
-       {location : '본찌돈까스' , lat : '37.2971523' , lng : '126.9715006', description: '율전에서 이색적인 음식을 먹고싶다면!'},  // 강남구 중심좌표
-       {location : '벨라튀니지' , lat : '37.2972199' , lng : '126.9713739', description: '율전에서 이색적인 음식을 먹고싶다면!'},  // 강동구 중심좌표
-       {location : '알촌' , lat : '37.297476' , lng : '126.9717054', description: '율전에서 이색적인 음식을 먹고싶다면!'},  // 강북구 중심좌표
-       {location : '무대포핫도그' , lat : '37.2969972' , lng : '126.9712576', description: '율전에서 이색적인 음식을 먹고싶다면!'},  // 강서구 중심좌표
-       {location : '힌카쿠' , lat : '37.2979467' , lng : '126.9721954', description: '율전에서 이색적인 음식을 먹고싶다면!'},
-       {location : '깡우동' , lat : '37.2984079' , lng : '126.9704937', description: '율전에서 이색적인 음식을 먹고싶다면!'},
-       {location : '무대포핫도그' , lat : '37.2981136' , lng : '126.9706376', description: '율전에서 이색적인 음식을 먹고싶다면!'},
-       {location : '독산성 족발&순대국' , lat : '37.2982302' , lng : '126.9712576', description: '율전에서 이색적인 음식을 먹고싶다면!'},
-       {location : '충만치킨' , lat : '37.2985579' , lng : '126.9696108', description: '율전에서 이색적인 음식을 먹고싶다면!'},
-       {location : '자명문' , lat : '37.2992317' , lng : '126.9699131', description: '율전에서 이색적인 음식을 먹고싶다면!'},
-       {location : '먹깨비김밥' , lat : '37.2986624' , lng : '126.971376', description: '율전에서 이색적인 음식을 먹고싶다면!'},
-       {location : '국졔식당' , lat : '37.2979487' , lng : '126.9732216', description: '율전에서 이색적인 음식을 먹고싶다면!'},
+       {location : '본찌돈까스' , lat : '37.2971523' , lng : '126.9715006', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag :'test0.png'},  // 강남구 중심좌표
+       {location : '벨라튀니지' , lat : '37.2972199' , lng : '126.9713739', description: '율전에서 이색적인 음식을 먹고싶다면!' , imageTag: 'test1.png'},  // 강동구 중심좌표
+       {location : '알촌' , lat : '37.297476' , lng : '126.9717054', description: '율전에서 이색적인 음식을 먹고싶다면!',imageTag: 'test2.png'},  // 강북구 중심좌표
+       {location : '무대포핫도그' , lat : '37.2969972' , lng : '126.9712576', description: '율전에서 이색적인 음식을 먹고싶다면!',imageTag: 'test3.png'},  // 강서구 중심좌표
+       {location : '힌카쿠' , lat : '37.2979467' , lng : '126.9721954', description: '율전에서 이색적인 음식을 먹고싶다면!',imageTag: 'test4.png'},
+       {location : '깡우동' , lat : '37.2984079' , lng : '126.9704937', description: '율전에서 이색적인 음식을 먹고싶다면!',imageTag: 'test5.png'},
+       {location : '무대포핫도그' , lat : '37.2981136' , lng : '126.9706376', description: '율전에서 이색적인 음식을 먹고싶다면!',imageTag: 'test6.png'},
+       {location : '독산성 족발&순대국' , lat : '37.2982302' , lng : '126.9712576', description: '율전에서 이색적인 음식을 먹고싶다면!',imageTag: 'test7.png'},
+       {location : '충만치킨' , lat : '37.2985579' , lng : '126.9696108', description: '율전에서 이색적인 음식을 먹고싶다면!',imageTag: 'test8.png'},
+       {location : '자명문' , lat : '37.2992317' , lng : '126.9699131', description: '율전에서 이색적인 음식을 먹고싶다면!',imageTag: 'test9.png'},
+       {location : '먹깨비김밥' , lat : '37.2986624' , lng : '126.971376', description: '율전에서 이색적인 음식을 먹고싶다면!',imageTag: 'test10.png'},
+       {location : '국졔식당' , lat : '37.2979487' , lng : '126.9732216', description: '율전에서 이색적인 음식을 먹고싶다면!',imageTag: 'test11.png'},
 
   );
+
+  function listAdd(i) {
+
+        let wrapper = document.getElementById('currentList')
+        wrapper.empty()
+
+
+
+        hangoutList.push(areaArr[i].location)
+        console.log(areaArr[i].location)
+
+        let mapList = document.createElement("div");
+        mapList.setAttribute("class", "mapList")
+        mapList.innerHTML = areaArr[i].location
+
+        wrapper.appendChild(mapList)
+        
+  }
   
 
   let _BASE = new naver.maps.LatLng(37.2939419, 126.9754234);
@@ -97,9 +117,9 @@ function initMap() {
       
       /* 정보창 */
        var infoWindow = new naver.maps.InfoWindow({
-           content: '<div class="infoTab" style="width:200px;text-align:center;padding:10px;"><b><div class="imageplace">test.png></div>'
-             + areaArr[i].location + '</b><br>' + areaArr[i].description +
-             '<button class="submit">Add</button>'
+           content: '<div class="infoTab" style="width:200px;text-align:center;padding:10px;">'`<div class="imageplace" style=background-image: url(${areaArr[i].imageTag})></div><b style="margin-top:10px;">`
+             + areaArr[i].location + '</b><br>' + areaArr[i].description + 
+             `<br><button class="submit" onclick="lisTAdd(${i})">Add</button>`
 
        }); // 클릭했을 때 띄워줄 정보 HTML 작성
       
@@ -146,7 +166,12 @@ function initMap() {
         new naver.maps.LatLng(37.288200, 126.977581),
         new naver.maps.LatLng(37.288855, 126.979122),
         new naver.maps.LatLng(37.290626, 126.983955),
-        new naver.maps.LatLng(37.296923, 126.978348)
+        new naver.maps.LatLng(37.296923, 126.978348),
+        new naver.maps.LatLng(37.300020, 126.969432),
+        new naver.maps.LatLng(37.290389, 126.975733),
+        new naver.maps.LatLng(37.298868, 126.975896)
+
+
         ]
     });
 
@@ -187,7 +212,7 @@ function maskerCluster(){
 
 
     var markerClustering = new MarkerClustering({
-        minClusterSize: 3,
+        minClusterSize: 2,
         maxZoom: 13,
         map: map,
         markers: markers,
@@ -200,6 +225,7 @@ function maskerCluster(){
         }
     });
 }
+
 
 
 </script>
