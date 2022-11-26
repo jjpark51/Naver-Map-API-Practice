@@ -83,7 +83,7 @@ $(function() {
         
         /* 정보창 */
          var infoWindow = new naver.maps.InfoWindow({
-             content: `<div class="infoTab" style="width:200px;text-align:center;padding:10px;"><b><div class="imageplace" style="background-image: url(${areaArr[i].imageTag})"></div>`
+             content: `<div class="infoTab" style="width:200px;text-align:center;padding:10px;border-radius:5px;"><b><div class="imageplace" style="background-image: url(${areaArr[i].imageTag})"></div>`
                + areaArr[i].location + '</b><br>' + areaArr[i].description +
                `<br><button class="submit" onclick=listAdd(${i})>Add</button>`
   
@@ -234,6 +234,17 @@ $(function() {
     mapList.innerHTML = hangoutList
     
     wrapper.appendChild(mapList)
+  }
+
+  function Confirm() {
+    let schedule = document.getElementById('schedule')
+
+    let final = document.createElement("h3")
+    final.innerHTML = hangoutList
+
+    schedule.appendChild(final)
+
+
   }
 
   function markerDisplay(define) {

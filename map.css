@@ -73,10 +73,31 @@ p {
     border-radius: 5px;
 
 }
+#edit {
+    display:flex;
+    column-gap: 15px;
 
+
+}
 #remove {
     margin-top:10px;
     border-radius: 5px;
     color:black;
+    flex:2;
+
+}
+
+#confirm {
+    margin-top:10px;
+    border-radius: 5px;
+    color:black;
+    flex:2;
+}
+
+
+h3 {
+    font-size: 15pt;
+    font-weight:bolder;
+    margin-top: 15px;
 
 }
