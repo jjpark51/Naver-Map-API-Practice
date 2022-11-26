@@ -4,7 +4,7 @@
 <head>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=8mn3xzptkk"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script src="/MarkerClustering.js"></script>
+<script src="MarkerClustering.js"></script>
 <link href="map.css" rel="stylesheet" />
 <meta charset="EUC-KR">
 <title>Insert title here</title>
@@ -34,7 +34,7 @@ $(function() {
 let markers = new Array(); // 마커 정보를 담는 배열
 let infoWindows = new Array(); // 정보창을 담는 배열
 let hangoutList = []
-  
+
 
 function initMap() { 
   
@@ -56,28 +56,11 @@ function initMap() {
 
   );
 
-  function listAdd(index) {
 
-        let wrapper = document.getElementById('currentList')
-        wrapper.empty()
-
-
-
-        hangoutList.push(areaArr[index].location)
-        console.log(areaArr[index].location)
-
-        let mapList = document.createElement("div");
-        mapList.setAttribute("class", "mapList")
-        mapList.innerHTML = areaArr[index].location
-
-        wrapper.appendChild(mapList)
-        
-  }
   
 
   let _BASE = new naver.maps.LatLng(37.2939419, 126.9754234);
   let _ZOOM = 16;
-  var menuLayer = $('<div style="position:absolute;z-index:10000;background-color:#fff;border:solid 1px #333;padding:10px;display:none;"></div>');
 
 
 
@@ -218,6 +201,26 @@ function maskerCluster(){
             $(clusterMarker.getElement()).find('div:first-child').text(count);
         }
     });
+}
+
+function listAdd(index) {
+
+console.log(index)
+
+let wrapper = document.getElementById('currentList')
+wrapper.empty()
+
+
+
+hangoutList.push(areaArr[index].location)
+console.log(areaArr[index].location)
+
+let mapList = document.createElement("div");
+mapList.setAttribute("class", "mapList")
+mapList.innerHTML = areaArr[index].location
+
+wrapper.appendChild(mapList)
+
 }
 
 
