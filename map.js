@@ -66,7 +66,6 @@ $(function() {
    // We are taking our predefined marker information into the markers, infoWindows array
   
     
-function markerDisplay(index) {
 
     for (var i = 0; i < areaArr.length; i++) {
   
@@ -89,7 +88,6 @@ function markerDisplay(index) {
          infoWindows.push(infoWindow); // 생성한 정보창을 배열에 담는다.
     }
   
-}
     // This displays all of the markers when the map loads
     
      
