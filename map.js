@@ -235,14 +235,15 @@ $(function() {
     wrapper.appendChild(mapList)
   }
 
-  function markerDisplay(type) {
+  function markerDisplay(define) {
+    console.log(define)
     let newMarkers = []
 
     for(let i = 0; i < markers.length; i++) { // markers를 초기화하는 부분
         markers[i].setMap(null) // We make sure that markers doesn't appear on the map
     }
 
-    if(type == "All") {
+    if(define == "All") {
         for(let i = 0; i < markers.length; i++) {
             markers[i].setMap(map);
             newMarkers.push(markers[i])
@@ -250,7 +251,8 @@ $(function() {
     }
     else {
         for(let i =0 ; i < markers.length; i++) {
-            if(type == markers[i].type) {
+            console.log(markers[i].type)
+            if(define == markers[i].type) {
                 markers[i].setMap(map);
                 newMarkers.push(markers[i]);
             }
