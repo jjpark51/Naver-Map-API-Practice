@@ -33,12 +33,13 @@ $(function() {
   
 let markers = new Array(); // 마커 정보를 담는 배열
 let infoWindows = new Array(); // 정보창을 담는 배열
+let areaArr = new Array();  // 지역을 담는 배열 ( 지역명/위도경도 )
+
 let hangoutList = []
 
 
 function initMap() { 
   
-  var areaArr = new Array();  // 지역을 담는 배열 ( 지역명/위도경도 )
   areaArr.push(
           /*지역구 이름*/			/*위도*/					/*경도*/				
        {location : '본찌돈까스' , lat : '37.2971523' , lng : '126.9715006', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: '/test0.png'},  // 강남구 중심좌표
