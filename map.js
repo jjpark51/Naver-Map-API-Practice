@@ -236,7 +236,9 @@ $(function() {
   }
 
   function markerDisplay(define) {
+    console.log("123")
     console.log(define)
+    console.log("end")
     let newMarkers = []
 
     for(let i = 0; i < markers.length; i++) { // markers를 초기화하는 부분
