@@ -67,46 +67,12 @@ $(function() {
   
     
 
-    for (var i = 0; i < areaArr.length; i++) {
-  
-        var marker = new naver.maps.Marker({
-            map: map,
-            title: areaArr[i].location, // 지역구 이름 
-            position: new naver.maps.LatLng(areaArr[i].lat , areaArr[i].lng), // 지역구의 위도 경도 넣기
-            draggable: false 
-        });
-        console.log("Marker check")
-        
-        /* 정보창 */
-         var infoWindow = new naver.maps.InfoWindow({
-             content: `<div class="infoTab" style="width:200px;text-align:center;padding:10px;"><b><div class="imageplace" style="background-image: url(${areaArr[i].imageTag})"></div>`
-               + areaArr[i].location + '</b><br>' + areaArr[i].description +
-               `<br><button class="submit" onclick=listAdd(${i})>Add</button>`
-  
-         }); // 클릭했을 때 띄워줄 정보 HTML 작성
-        
-         markers.push(marker); // 생성한 마커를 배열에 담는다.
-         infoWindows.push(infoWindow); // 생성한 정보창을 배열에 담는다.
-    }
   
     // This displays all of the markers when the map loads
     
      
     // This opens up the info when we click on the marker
-    function getClickHandler(seq) {
-        
-            return function(e) {  // 마커를 클릭하는 부분
-                var marker = markers[seq], // 클릭한 마커의 시퀀스로 찾는다.
-                    infoWindow = infoWindows[seq]; // 클릭한 마커의 시퀀스로 찾는다
-  
-                if (infoWindow.getMap()) {
-                    infoWindow.close(); // We close the info tab if we already clicked on it
-                } else {
-                    infoWindow.open(map, marker); // 표출
-                }
-            }
-      }
-  
+
        // naver.maps.Event.addListener(map, 'click', newMarker(seq))
   
     
@@ -116,70 +82,29 @@ $(function() {
         naver.maps.Event.addListener(markers[i], 'click', getClickHandler(i)); // 클릭한 마커 핸들러
     }
   
-    var polyline = new naver.maps.Polyline({
-      map: map,
-      path: [
-          new naver.maps.LatLng(37.298868, 126.975896),
-          new naver.maps.LatLng(37.300494, 126.965057),
-          new naver.maps.LatLng(37.298898, 126.964843),
-          new naver.maps.LatLng(37.294574, 126.967658),
-          new naver.maps.LatLng(37.294321, 126.970024),
-          new naver.maps.LatLng(37.290828, 126.969879),
-          new naver.maps.LatLng(37.288200, 126.977581),
-          new naver.maps.LatLng(37.288855, 126.979122),
-          new naver.maps.LatLng(37.290626, 126.983955),
-          new naver.maps.LatLng(37.296923, 126.978348),
-          new naver.maps.LatLng(37.298868, 126.975896),
-  
-          ]
-      });
+    outline();
   
   
   
   }
-  
-  
-  function maskerCluster(){
-      var htmlMarker1 = {
-          content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(https://navermaps.github.io/maps.js.ncp/docs/img/cluster-marker-1.png);background-size:contain;"></div>',
-          size: N.Size(40, 40),
-          anchor: N.Point(20, 20)
-      },
-      htmlMarker2 = {
-          content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(https://navermaps.github.io/maps.js.ncp/docs/img/cluster-marker-2.png);background-size:contain;"></div>',
-          size: N.Size(40, 40),
-          anchor: N.Point(20, 20)
-      },
-      htmlMarker3 = {
-          content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(https://navermaps.github.io/maps.js.ncp/docs/img/cluster-marker-3.png);background-size:contain;"></div>',
-          size: N.Size(40, 40),
-          anchor: N.Point(20, 20)
-      },
-      htmlMarker4 = {
-          content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(https://navermaps.github.io/maps.js.ncp/docs/img/cluster-marker-4.png);background-size:contain;"></div>',
-          size: N.Size(40, 40),
-          anchor: N.Point(20, 20)
-      },
-      htmlMarker5 = {
-          content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(https://navermaps.github.io/maps.js.ncp/docs/img/cluster-marker-5.png);background-size:contain;"></div>',
-          size: N.Size(40, 40),
-          anchor: N.Point(20, 20)
-      };
-  
-  
-      var markerClustering = new MarkerClustering({
-          minClusterSize: 2,
-          maxZoom: 13,
-          map: map,
-          markers: markers,
-          disableClickZoom: false,
-          gridSize: 120,
-          icons: [htmlMarker1, htmlMarker2, htmlMarker3, htmlMarker4, htmlMarker5],
-          indexGenerator: [10, 100, 200, 500, 1000],
-          stylingFunction: function(clusterMarker, count) {
-              $(clusterMarker.getElement()).find('div:first-child').text(count);
-          }
-      });
+  function outline() {
+    var polyline = new naver.maps.Polyline({
+        map: map,
+        path: [
+            new naver.maps.LatLng(37.298868, 126.975896),
+            new naver.maps.LatLng(37.300494, 126.965057),
+            new naver.maps.LatLng(37.298898, 126.964843),
+            new naver.maps.LatLng(37.294574, 126.967658),
+            new naver.maps.LatLng(37.294321, 126.970024),
+            new naver.maps.LatLng(37.290828, 126.969879),
+            new naver.maps.LatLng(37.288200, 126.977581),
+            new naver.maps.LatLng(37.288855, 126.979122),
+            new naver.maps.LatLng(37.290626, 126.983955),
+            new naver.maps.LatLng(37.296923, 126.978348),
+            new naver.maps.LatLng(37.298868, 126.975896),
+    
+            ]
+        });
   }
   
   function listAdd(index) {
@@ -228,112 +153,47 @@ $(function() {
     
     wrapper.appendChild(mapList)
   }
-/*
-  function markerDisplay(index) {
 
-        if(index == 0) {
 
-            for (var i = 0; i < areaArr.length; i++) {
-        
-                var marker = new naver.maps.Marker({
-                    map: map,
-                    title: areaArr[i].location, // 지역구 이름 
-                    position: new naver.maps.LatLng(areaArr[i].lat , areaArr[i].lng), // 지역구의 위도 경도 넣기
-                    draggable: false 
-                });
-                
-                /* 정보창 *//*
-                var infoWindow = new naver.maps.InfoWindow({
-                    content: `<div class="infoTab" style="width:200px;text-align:center;padding:10px;"><b><div class="imageplace" style="background-image: url(${areaArr[i].imageTag})"></div>`
-                    + areaArr[i].location + '</b><br>' + areaArr[i].description +
-                    `<br><button class="submit" onclick=listAdd(${i})>Add</button>`
-        
-                }); // 클릭했을 때 띄워줄 정보 HTML 작성
-                
-            }
-        }
-        else if(index == 1) {
-            for (var i = 0; i < areaArr.length; i++) {
+function loadMarkers() {
 
-                if(areaArr[i].type == 'food') {
-        
-                    var marker = new naver.maps.Marker({
-                        map: map,
-                        title: areaArr[i].location, // 지역구 이름 
-                        position: new naver.maps.LatLng(areaArr[i].lat , areaArr[i].lng), // 지역구의 위도 경도 넣기
-                        draggable: false 
-                    });
-                    
-                    /* 정보창 *//*
-                    var infoWindow = new naver.maps.InfoWindow({
-                        content: `<div class="infoTab" style="width:200px;text-align:center;padding:10px;"><b><div class="imageplace" style="background-image: url(${areaArr[i].imageTag})"></div>`
-                        + areaArr[i].location + '</b><br>' + areaArr[i].description +
-                        `<br><button class="submit" onclick=listAdd(${i})>Add</button>`
-            
-                    }); // 클릭했을 때 띄워줄 정보 HTML 작성
-                }
-                
-            }
-
-        }
-        else if(index == 2) {
-            for (var i = 0; i < areaArr.length; i++) {
-
-                if(areaArr[i].type == 'cafe') {
-        
-                    var marker = new naver.maps.Marker({
-                        map: map,
-                        title: areaArr[i].location, // 지역구 이름 
-                        position: new naver.maps.LatLng(areaArr[i].lat , areaArr[i].lng), // 지역구의 위도 경도 넣기
-                        draggable: false 
-                    });
-                    
-                    /* 정보창 *//*
-                    var infoWindow = new naver.maps.InfoWindow({
-                        content: `<div class="infoTab" style="width:200px;text-align:center;padding:10px;"><b><div class="imageplace" style="background-image: url(${areaArr[i].imageTag})"></div>`
-                        + areaArr[i].location + '</b><br>' + areaArr[i].description +
-                        `<br><button class="submit" onclick=listAdd(${i})>Add</button>`
-            
-                    }); // 클릭했을 때 띄워줄 정보 HTML 작성
-                }
-                
-            }
-
-        }
-        else if(index == 3) {
-            for (var i = 0; i < areaArr.length; i++) {
-
-                if(areaArr[i].type == 'activities') {
-        
-                    var marker = new naver.maps.Marker({
-                        map: map,
-                        title: areaArr[i].location, // 지역구 이름 
-                        position: new naver.maps.LatLng(areaArr[i].lat , areaArr[i].lng), // 지역구의 위도 경도 넣기
-                        draggable: false 
-                    });
-                    
-                    /* 정보창 *//*
-                    var infoWindow = new naver.maps.InfoWindow({
-                        content: `<div class="infoTab" style="width:200px;text-align:center;padding:10px;"><b><div class="imageplace" style="background-image: url(${areaArr[i].imageTag})"></div>`
-                        + areaArr[i].location + '</b><br>' + areaArr[i].description +
-                        `<br><button class="submit" onclick=listAdd(${i})>Add</button>`
-            
-                    }); // 클릭했을 때 띄워줄 정보 HTML 작성
-                }
-                
-            }
-
-        }
-        else if(index == 3) {
-            for (var i = 0; i < areaArr.length; i++) {
-
-                if(areaArr[i].type == 'alcohol') {
-        
-                    
-                }
-                
-            }
-
-        }
+    for (var i = 0; i < areaArr.length; i++) {
   
-}*/
+        var marker = new naver.maps.Marker({
+            map: map,
+            title: areaArr[i].location, // 지역구 이름 
+            position: new naver.maps.LatLng(areaArr[i].lat , areaArr[i].lng), // 지역구의 위도 경도 넣기
+            draggable: false 
+        });
+        console.log("Marker check")
+        
+        /* 정보창 */
+         var infoWindow = new naver.maps.InfoWindow({
+             content: `<div class="infoTab" style="width:200px;text-align:center;padding:10px;"><b><div class="imageplace" style="background-image: url(${areaArr[i].imageTag})"></div>`
+               + areaArr[i].location + '</b><br>' + areaArr[i].description +
+               `<br><button class="submit" onclick=listAdd(${i})>Add</button>`
+  
+         }); // 클릭했을 때 띄워줄 정보 HTML 작성
+        
+         markers.push(marker); // 생성한 마커를 배열에 담는다.
+         infoWindows.push(infoWindow); // 생성한 정보창을 배열에 담는다.
+    }
+}
+function getClickHandler(seq) {
+        
+    return function(e) {  // 마커를 클릭하는 부분
+        var marker = markers[seq], // 클릭한 마커의 시퀀스로 찾는다.
+            infoWindow = infoWindows[seq]; // 클릭한 마커의 시퀀스로 찾는다
+
+        if (infoWindow.getMap()) {
+            infoWindow.close(); // We close the info tab if we already clicked on it
+        } else {
+            infoWindow.open(map, marker); // 표출
+        }
+    }
+}
+
+
+$(document).ready(function() {
+    loadMarkers();
+})
