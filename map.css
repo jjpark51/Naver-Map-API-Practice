@@ -1,0 +1,22 @@
+.infoTab {
+    width:200px;
+    text-align: center;
+    padding:10px;
+    min-height: auto;
+
+}
+
+.imageplace {
+    background-image: url(test.png);
+    height:40px;
+    background-size: contain;
+
+}
+
+.submit {
+    width:50px;
+    height:30px;
+    color:black;
+    font-weight: bolder;
+
+}

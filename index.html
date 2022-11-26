@@ -5,6 +5,7 @@
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=8mn3xzptkk"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="/MarkerClustering.js"></script>
+<link href="map.css" rel="stylesheet" />
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
@@ -96,7 +97,10 @@ function initMap() {
       
       /* 정보창 */
        var infoWindow = new naver.maps.InfoWindow({
-           content: '<div style="width:200px;text-align:center;padding:10px;"><b>' + areaArr[i].location + '</b><br>' + areaArr[i].description +  ' </div>'
+           content: '<div class="infoTab" style="width:200px;text-align:center;padding:10px;"><b><div class="imageplace">test.png></div>'
+             + areaArr[i].location + '</b><br>' + areaArr[i].description +
+             '<button class="submit">Add</button>'
+
        }); // 클릭했을 때 띄워줄 정보 HTML 작성
       
        markers.push(marker); // 생성한 마커를 배열에 담는다.
@@ -134,7 +138,6 @@ function initMap() {
     map: map,
     path: [
         new naver.maps.LatLng(37.298868, 126.975896),
-        new naver.maps.LatLng(37.297304, 126.974690),
         new naver.maps.LatLng(37.300494, 126.965057),
         new naver.maps.LatLng(37.298898, 126.964843),
         new naver.maps.LatLng(37.294574, 126.967658),
