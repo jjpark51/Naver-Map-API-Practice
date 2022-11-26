@@ -75,6 +75,7 @@ $(function() {
             position: new naver.maps.LatLng(areaArr[i].lat , areaArr[i].lng), // 지역구의 위도 경도 넣기
             draggable: false 
         });
+        console.log("Marker check")
         
         /* 정보창 */
          var infoWindow = new naver.maps.InfoWindow({
@@ -183,29 +184,52 @@ $(function() {
   
   function listAdd(index) {
   
-  console.log(index)
-  
-  let wrapper = document.getElementById('currentList')
-  $('#currentList').empty()
-  
-  
-  
-  hangoutList.push(areaArr[index].location)
-  console.log(areaArr[index].location)
-  
-  let mapList = document.createElement("div");
-  mapList.setAttribute("class", "mapList")
-  
-  hangoutList.forEach((e) =>
-      mapList.innerHTML = e,
-      mapList.innerHTML = " ,"
-  )
-  mapList.innerHTML = hangoutList
-  
-  wrapper.appendChild(mapList)
+    console.log(index)
+    
+    let wrapper = document.getElementById('currentList')
+    $('#currentList').empty()
+    
+    
+    
+    hangoutList.push(areaArr[index].location)
+    console.log(areaArr[index].location)
+    
+    let mapList = document.createElement("div");
+    mapList.setAttribute("class", "mapList")
+    
+    hangoutList.forEach((e) =>
+        mapList.innerHTML = e,
+        mapList.innerHTML = " ,"
+    )
+    mapList.innerHTML = hangoutList
+    
+    wrapper.appendChild(mapList)
   
   }
 
+  function Remove() {
+    console.log(index)
+    
+    let wrapper = document.getElementById('currentList')
+    $('#currentList').empty()
+    
+    
+    
+    hangoutList.pop()
+    console.log(hangoutList)
+    
+    let mapList = document.createElement("div");
+    mapList.setAttribute("class", "mapList")
+    
+    hangoutList.forEach((e) =>
+        mapList.innerHTML = e,
+        mapList.innerHTML = " ,"
+    )
+    mapList.innerHTML = hangoutList
+    
+    wrapper.appendChild(mapList)
+  }
+/*
   function markerDisplay(index) {
 
         if(index == 0) {
@@ -219,7 +243,7 @@ $(function() {
                     draggable: false 
                 });
                 
-                /* 정보창 */
+                /* 정보창 *//*
                 var infoWindow = new naver.maps.InfoWindow({
                     content: `<div class="infoTab" style="width:200px;text-align:center;padding:10px;"><b><div class="imageplace" style="background-image: url(${areaArr[i].imageTag})"></div>`
                     + areaArr[i].location + '</b><br>' + areaArr[i].description +
@@ -227,8 +251,6 @@ $(function() {
         
                 }); // 클릭했을 때 띄워줄 정보 HTML 작성
                 
-                markers.push(marker); // 생성한 마커를 배열에 담는다.
-                infoWindows.push(infoWindow); // 생성한 정보창을 배열에 담는다.
             }
         }
         else if(index == 1) {
@@ -243,7 +265,7 @@ $(function() {
                         draggable: false 
                     });
                     
-                    /* 정보창 */
+                    /* 정보창 *//*
                     var infoWindow = new naver.maps.InfoWindow({
                         content: `<div class="infoTab" style="width:200px;text-align:center;padding:10px;"><b><div class="imageplace" style="background-image: url(${areaArr[i].imageTag})"></div>`
                         + areaArr[i].location + '</b><br>' + areaArr[i].description +
@@ -267,7 +289,7 @@ $(function() {
                         draggable: false 
                     });
                     
-                    /* 정보창 */
+                    /* 정보창 *//*
                     var infoWindow = new naver.maps.InfoWindow({
                         content: `<div class="infoTab" style="width:200px;text-align:center;padding:10px;"><b><div class="imageplace" style="background-image: url(${areaArr[i].imageTag})"></div>`
                         + areaArr[i].location + '</b><br>' + areaArr[i].description +
@@ -291,7 +313,7 @@ $(function() {
                         draggable: false 
                     });
                     
-                    /* 정보창 */
+                    /* 정보창 *//*
                     var infoWindow = new naver.maps.InfoWindow({
                         content: `<div class="infoTab" style="width:200px;text-align:center;padding:10px;"><b><div class="imageplace" style="background-image: url(${areaArr[i].imageTag})"></div>`
                         + areaArr[i].location + '</b><br>' + areaArr[i].description +
@@ -308,30 +330,11 @@ $(function() {
 
                 if(areaArr[i].type == 'alcohol') {
         
-                    var marker = new naver.maps.Marker({
-                        map: map,
-                        title: areaArr[i].location, // 지역구 이름 
-                        position: new naver.maps.LatLng(areaArr[i].lat , areaArr[i].lng), // 지역구의 위도 경도 넣기
-                        draggable: false 
-                    });
                     
-                    /* 정보창 */
-                    var infoWindow = new naver.maps.InfoWindow({
-                        content: `<div class="infoTab" style="width:200px;text-align:center;padding:10px;"><b><div class="imageplace" style="background-image: url(${areaArr[i].imageTag})"></div>`
-                        + areaArr[i].location + '</b><br>' + areaArr[i].description +
-                        `<br><button class="submit" onclick=listAdd(${i})>Add</button>`
-            
-                    }); // 클릭했을 때 띄워줄 정보 HTML 작성
                 }
                 
             }
 
         }
   
-}
-  
-  
-  $(document).ready(function() {
-      markerCluster();
-  })
-  
+}*/
