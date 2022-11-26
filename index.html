@@ -15,6 +15,7 @@
 
 <!-- 네이버 지도가 뿌려질 곳 !  -->
 <div id="map" style="width:100%;height:75vh; margin: 0 auto;"></div>
+<div id="currentList"></div>
 
 
 </body>
@@ -32,6 +33,7 @@ $(function() {
   
 let markers = new Array(); // 마커 정보를 담는 배열
 let infoWindows = new Array(); // 정보창을 담는 배열
+let hangoutList = []
   
 
 function initMap() { 
@@ -53,6 +55,24 @@ function initMap() {
        {location : '국졔식당' , lat : '37.2979487' , lng : '126.9732216', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: '/test11.png'},
 
   );
+
+  function listAdd(i) {
+
+        let wrapper = document.getElementById('currentList')
+        wrapper.empty()
+
+
+
+        hangoutList.push(areaArr[i].location)
+        console.log(areaArr[i].location)
+
+        let mapList = document.createElement("div");
+        mapList.setAttribute("class", "mapList")
+        mapList.innerHTML = areaArr[i].location
+
+        wrapper.appendChild(mapList)
+        
+  }
   
 
   let _BASE = new naver.maps.LatLng(37.2939419, 126.9754234);
@@ -189,7 +209,7 @@ function maskerCluster(){
 
 
     var markerClustering = new MarkerClustering({
-        minClusterSize: 3,
+        minClusterSize: 2,
         maxZoom: 13,
         map: map,
         markers: markers,
@@ -202,6 +222,7 @@ function maskerCluster(){
         }
     });
 }
+
 
 
 </script>
