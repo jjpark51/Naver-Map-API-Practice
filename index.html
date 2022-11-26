@@ -218,7 +218,12 @@ console.log(areaArr[index].location)
 
 let mapList = document.createElement("div");
 mapList.setAttribute("class", "mapList")
-mapList.innerHTML = areaArr[index].location
+
+hangoutList.forEach((e) =>
+    mapList.innerHTML = e,
+    mapList.innerHTML = " ,"
+)
+mapList.innerHTML = hangoutList
 
 wrapper.appendChild(mapList)
 
