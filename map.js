@@ -54,24 +54,7 @@ $(function() {
 );
   
   
-  function initMap() { 
-    
-    
-  
-  
-    
-  
-    
-  
-    // Make an event for the map
-  
-    
-    
-    
-   // 지역을 담은 배열의 길이만큼 for문으로 마커와 정보창을 채워주자 !
-  
-   // We are taking our predefined marker information into the markers, infoWindows array
-  
+  function initMap() {   
     
 
     for (var i = 0; i < areaArr.length; i++) {
