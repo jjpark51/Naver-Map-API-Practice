@@ -46,9 +46,9 @@ $(function() {
  {location : '자명문' , lat : '37.2992317' , lng : '126.9699131', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test9.png', type: 'Cafe'},
  {location : '먹깨비김밥' , lat : '37.2986624' , lng : '126.971376', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test10.png', type: 'Food'},
  {location : '국제식당' , lat : '37.2979487' , lng : '126.9732216', description: '율전에서 이색적인 음식을 먹고싶다면!', imageTag: 'img/test11.png', type: 'Food'},
- {location : '성대목장' , lat : '37.2969672' , ln:'126.9692569', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/test12.png',type:'Food'},
- {location : '성대찌개고을' , lat : '37.2971789' , ln:'126.96936', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/test13.png',type:'Food'},
- {location : '명가양꼬치' , lat : '37.2967229' , ln:'126.9691429', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/test14.png',type:'Food'},
+ {location : '성대목장' , lat : '37.2969672' , lng: '126.9692569', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/test12.png',type: 'Food'},
+ {location : '성대찌개고을' , lat : '37.2971789' , lng: '126.96936', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/test13.png',type: 'Food'},
+ {location : '명가양꼬치' , lat : '37.2967229' , lng: '126.9691429', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/test14.png',type: 'Food'},
 
 
 );
