@@ -14,8 +14,6 @@
 #mapSection {
         width: 100%;
         height: 100vh;
-        justify-content: space-around;
-        align-content: center;
 }
 #mapWrapper {
     width:80%;
@@ -123,10 +121,11 @@ p {
     font-weight:300;
 }
 #edit {
+    display:flex;
     column-gap: 15px;
     font-family: 'Montserrat Alternates', sans-serif;
     width:50%;
-    margin:auto;
+    justify-content: center;
 
 
 }
