@@ -17,14 +17,12 @@
         width: 100%;
         height: 100vh;
         flex-direction: row;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-content: center;
 }
 
-#mapSection, #mapWrapper {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-content: center;
-}
 .infoTab {
     width:200px;
     text-align: center;
