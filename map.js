@@ -74,7 +74,6 @@ $(function() {
     {location : '어반그레이' , lat : '37.2989143' , lng :'126.9693341', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/cafe.png',type:'Cafe'},
     {location : '오디디' , lat : '37.2987629' , lng :'126.9698674', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/cafe.png',type:'Cafe'},
     {location : '피자스쿨' , lat : '37.2987629' , lng :'126.9698674', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/food.png',type:'Food'},
-    {location : '자명문' , lat : '37.2992317' , lng :'126.9699131', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/food.png',type:'Food'},
     {location : '인더비엣' , lat : '37.2988669' , lng :'126.9705375', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/food.png',type:'Food'},
     {location : '대동집' , lat : '37.2989289' , lng :'126.9700998', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/food.png',type:'Food'},
     {location : '김씨화로' , lat : '37.2994117' , lng :'126.9701733', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/food.png',type:'Food'},
@@ -293,6 +292,19 @@ $(function() {
     {location : '엉클kun커피하우스' , lat : '37.290388' , lng:'126.978495', description: '율전에서 즐겁게 놀고 싶다면!', imageTag: 'img/cafe.png',type:'Cafe'},
     {location : '회뜨는수산' , lat : '37.290273' , lng:'126.978466', description: '율전에서 즐겁게 놀고 싶다면!', imageTag: 'img/food.png',type:'Food'},
     {location : '카츠요이' , lat : '37.290511' , lng:'126.978526', description: '율전에서 즐겁게 놀고 싶다면!', imageTag: 'img/food.png',type:'Food'},
+    {location : 'DCT Bar' , lat : '37.2989702' , lng:'126.9707434', description: '율전에서 즐겁게 놀고 싶다면!', imageTag: 'img/beer.png',type:'Beverages'},
+    {location : '태라스비어' , lat : '37.2987543' , lng:'126.9729219', description: '율전에서 즐겁게 놀고 싶다면!', imageTag: 'img/beer.png',type:'Beverages'},
+    {location : '인생술집' , lat : '37.2981396' , lng:'126.972169', description: '율전에서 즐겁게 놀고 싶다면!', imageTag: 'img/beer.png',type:'Beverages'},
+    {location : '생활맥주' , lat : '37.2991841' , lng:'126.9705636', description: '율전에서 즐겁게 놀고 싶다면!', imageTag: 'img/beer.png',type:'Beverages'},
+    {location : '봉구비어' , lat : '37.2988768' , lng:'126.9705336', description: '율전에서 즐겁게 놀고 싶다면!', imageTag: 'img/beer.png',type:'Beverages'},
+    {location : '더브로' , lat : '37.2981617' , lng:'126.9702535', description: '율전에서 즐겁게 놀고 싶다면!', imageTag: 'img/beer.png',type:'Beverages'},
+    {location : '양철통' , lat : '37.2979023' , lng:'126.9705852', description: '율전에서 즐겁게 놀고 싶다면!', imageTag: 'img/beer.png',type:'Beverages'},
+    {location : '맥주클럽' , lat : '37.2975555' , lng:'126.9703847', description: '율전에서 즐겁게 놀고 싶다면!', imageTag: 'img/beer.png',type:'Beverages'},
+    {location : '아무술집' , lat : '37.2973474' , lng:'126.9699826', description: '율전에서 즐겁게 놀고 싶다면!', imageTag: 'img/beer.png',type:'Beverages'},
+    {location : '수제맥주 5.0' , lat : '37.2977138' , lng:'126.9693132', description: '율전에서 즐겁게 놀고 싶다면!', imageTag: 'img/beer.png',type:'Beverages'},
+
+
+
    
 
 );
