@@ -314,7 +314,7 @@ $(function() {
         
         /* 정보창 */
          var infoWindow = new naver.maps.InfoWindow({
-             content: `<div class="infoTab" style="width:200px;text-align:center;padding:10px;border-radius:5px;"><b><div class="imageplace" style="background-image: url(${areaArr[i].imageTag})"></div>`
+             content: `<div class="infoTab" style="width:200px;text-align:center;padding:10px;border-radius:5px;"><b><div class="imageplace" style="background-image: url(${areaArr[i].imageTag}; background-size: contain; background-repeat: no-repeat;)"></div>`
                + areaArr[i].location + '</b><br>' + areaArr[i].description +
                `<br><button class="submit" onclick=listAdd(${i})>Add</button>`
   
@@ -366,7 +366,6 @@ $(function() {
           new naver.maps.LatLng(37.2881834, 126.9776124),
           new naver.maps.LatLng(37.2905216, 126.9839341),
           new naver.maps.LatLng(37.2986256, 126.9765827),
-          new naver.maps.LatLng(37.2926475, 126.9791880),
           new naver.maps.LatLng(37.2997959, 126.9725965),
           new naver.maps.LatLng(37.2997035, 126.9725015),
 
