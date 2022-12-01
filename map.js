@@ -378,8 +378,8 @@ $(function() {
   
     console.log(index)
     
-    let wrapper = document.getElementById('currentList')
-    $('#currentList').empty()
+    let wrapper = document.getElementById('stage')
+    $('#stage').empty()
     
     
     
