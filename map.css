@@ -19,8 +19,7 @@
 }
 #mapWrapper {
     width:80%;
-    display:flex;
-    justify-content: center;
+    margin: auto;
 }
 
 #currentList {
@@ -124,11 +123,10 @@ p {
     font-weight:300;
 }
 #edit {
-    display:flex;
     column-gap: 15px;
     font-family: 'Montserrat Alternates', sans-serif;
     width:50%;
-    justify-content: center;
+    margin:auto;
 
 
 }
