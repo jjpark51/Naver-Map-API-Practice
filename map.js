@@ -187,7 +187,6 @@ $(function() {
     {location : '알촌' , lat : '37.2969709' , lng:'126.9714483', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/food.png',type:'Food'},
     {location : '일미닭갈비파전' , lat : '37.2973208' , lng:'126.9716534', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/food.png',type:'Food'},
     {location : '성대골목식당' , lat : '37.297364' , lng:'126.971663', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/food.png',type:'Food'},
-    {location : '테크노노래방' , lat : '37.297318' , lng:'126.91709', description: '율전에서 즐겁게 놀고 싶다면!', imageTag: 'img/play.png',type:'Activities'},
     {location : '아늑' , lat : '37.2969709' , lng:'126.9714483', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/food.png',type:'Food'},
     {location : '도레미파스타' , lat : '37.2969709' , lng:'126.9714483', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/food.png',type:'Food'},
     {location : '맘스터치' , lat : '37.298214' , lng:'126.971825', description: '율전에서 이색적인 음식을 먹고 싶다면!', imageTag: 'img/food.png',type:'Food'},
