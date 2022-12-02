@@ -15,7 +15,7 @@
 #mapSection {
         width: 100%;
         height: 100vh;
-        background-color:red;
+        background-image: url(img/mapback.jpg);
 }
 #mapWrapper {
     width:80%;
@@ -154,6 +154,11 @@ p {
     border: 0;
 }
 
+#backImg {
+    background-image: url(img/friends.jpg);
+    background-size:contain;
+    height:400px;
+}
 
 h3 {
     font-size: 15pt;
@@ -161,4 +166,9 @@ h3 {
     margin-top: 15px;
     font-family: 'Montserrat Alternates', sans-serif;
 
+}
+
+#schedule {
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
