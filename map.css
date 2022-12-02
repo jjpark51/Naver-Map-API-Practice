@@ -75,6 +75,7 @@ p {
     margin-top:10px;
     margin-bottom:10px;
     margin:auto;
+    color:whitesmoke;
 }
 
 #filter {
@@ -83,6 +84,7 @@ p {
     font-size: 14pt;
     font-weight:bolder;
     margin-bottom: 20px;
+    color:whitesmoke;
 
 }
 #box0 {
@@ -167,6 +169,7 @@ h3 {
     font-weight:bolder;
     margin-top: 15px;
     font-family: 'Montserrat Alternates', sans-serif;
+    color:#575859;
 
 }
 
