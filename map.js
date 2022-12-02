@@ -434,7 +434,11 @@ $(function() {
   }
 
   function Confirm() {
+
+
     let schedule = document.getElementById('schedule')
+
+    $('#schedule').empty()
 
     let final = document.createElement("h3")
     final.innerHTML = hangoutList
